@@ -93,7 +93,6 @@ class test_add_group(unittest.TestCase):
         return True
 
 
-
     def tearDown(self):
         self.wd.quit()
 

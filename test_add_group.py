@@ -5,10 +5,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
+import unittest
 
 
-class TestAddGroup(unittest.TestCase):
+class test_add_group(unittest.TestCase):
     def setUp(self):
         # self.wd = webdriver.Chrome(executable_path=r'')
         self.wd = webdriver.Firefox()
@@ -17,7 +17,9 @@ class TestAddGroup(unittest.TestCase):
 
     def test_add_group(self):
         wd = self.wd
+        # open home page
         wd.get("http://localhost/addressbook/")
+        # login
         wd.find_element_by_xpath("//*/text()[normalize-space(.)='']/parent::*").click()
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
@@ -27,7 +29,9 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
         wd.find_element_by_xpath("//input[@value='Login']").click()
+        # open groups
         wd.find_element_by_link_text("groups").click()
+        # add new group
         wd.find_element_by_name("new").click()
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
@@ -38,10 +42,13 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
         wd.find_element_by_name("group_footer").send_keys("testfooter")
-        wd.find_element_by_name("submit").click()
+        wd.find_element_by_name("submit").click(
+        # close to open groups
         wd.find_element_by_link_text("group page").click()
+        # select group
         wd.find_element_by_name("selected[]").click()
         wd.find_element_by_xpath("//*/text()[normalize-space(.)='']/parent::*").click()
+        # logout
         wd.find_element_by_link_text("Logout").click()
 
     def is_element_present(self, how, what):

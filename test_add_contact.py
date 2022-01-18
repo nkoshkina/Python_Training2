@@ -11,6 +11,7 @@ from contact import Contact
 
 
 class TestAddNewContact(unittest.TestCase):
+
     def setUp(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)

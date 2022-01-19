@@ -19,6 +19,9 @@ class Application:
         wd = self.wd
         wd.get("http://localhost/addressbook/")
 
+    def open_home_link(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
 
 
     def destroy(self):

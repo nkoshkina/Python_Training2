@@ -30,15 +30,16 @@ class GroupHelper:
     def fill_all_fields(self, group):
         wd = self.app.wd
         # fill new group form
-        wd.find_element_by_name("group_name").click()
-        wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(group.name)
-        wd.find_element_by_name("group_header").click()
-        wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(group.header)
-        wd.find_element_by_name("group_footer").click()
-        wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys(group.footer)
+        self.fill_field("group_name", group.name)
+        self.fill_field("group_header", group.header)
+        self.fill_field("group_footer", group.footer)
+
+    def fill_field(self, field, text):
+        wd = self.app.wd
+        if text is not None:
+            wd.find_element_by_name(field).click()
+            wd.find_element_by_name(field).clear()
+            wd.find_element_by_name(field).send_keys(text)
 
     def click_edit_button(self):
         wd = self.app.wd

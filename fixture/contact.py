@@ -113,3 +113,7 @@ class ContactHelper:
         # Click Delete button
         wd.find_element_by_xpath("//input[@value='Delete']").click()
 
+    def count(self):
+        wd = self.app.wd
+        self.app.open_home_link()
+        return len(wd.find_elements_by_name("selected[]"))

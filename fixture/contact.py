@@ -55,23 +55,31 @@ class ContactHelper:
             Select(wd.find_element_by_name(field)).select_by_visible_text(text)
 
     def modify_first_contact(self, contact):
+        self.modify_contact_by_index(0, contact)
+
+    def modify_contact_by_index(self, index, contact):
         wd = self.app.wd
         self.click_home_link()
-        # Click Edit for 1st contact
-        wd.find_element_by_xpath("//img[@title='Edit']").click()
+        wd.find_elements_by_xpath("//img[@title='Edit']")[index].click()
         # Fill fields
         self.fill_all_fields(contact)
         wd.find_element_by_name("update").click()
         self.contact_cache = None
 
     def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.click_home_link()
-        # Select 1st contact
-        wd.find_element_by_name("selected[]").click()
+        self.select_contact_by_index(index)
         self.click_delete_button()
         self.alert_accept()
         self.contact_cache = None
+
+    def select_contact_by_index(self, index):
+        wd = self.app.wd
+        wd.find_elements_by_name("selected[]")[index].click()
 
     def alert_accept(self):
         wd = self.app.wd

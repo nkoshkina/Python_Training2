@@ -24,12 +24,6 @@ class Application:
         wd = self.wd
         wd.get("http://localhost/addressbook/")
 
-    def click_home_link(self):
-        wd = self.wd
-        if wd.current_url.endswith("/addressbook") and len(wd.find_elements_by_xpath("//[@value='Send e-Mail']")) >0:
-            return
-        wd.find_element_by_link_text("home").click()
-
 
     def destroy(self):
         self.wd.quit()

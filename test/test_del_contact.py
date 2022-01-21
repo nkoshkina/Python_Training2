@@ -10,7 +10,7 @@ def test_delete_first_contact(app):
                                     "sec address", "//test", "here are notes"))
     old_contacts = app.contact.get_contacts_list()
     app.contact.delete_first_contact()
+    assert app.contact.count() == len(old_contacts) - 1
     new_contacts = app.contact.get_contacts_list()
-    assert len(new_contacts) == len(old_contacts) - 1
     old_contacts[0:1] = []
     assert new_contacts == old_contacts

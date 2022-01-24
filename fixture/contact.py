@@ -38,7 +38,7 @@ class ContactHelper:
         self.selected_field("amonth", contact.manniversary)
         self.fill_text_field("ayear", contact.yanniversary)
         self.fill_text_field("address2", contact.saddress)
-        self.fill_text_field("phone2", contact.shome)
+        self.fill_text_field("phone2", contact.sphone)
         self.fill_text_field("notes", contact.snotes)
 
     def fill_text_field(self, field, text):

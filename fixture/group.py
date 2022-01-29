@@ -30,6 +30,17 @@ class GroupHelper:
         self.click_return_to_groups_page_link()
         self.group_cache = None
 
+    def modify_group_by_id(self, id, group):
+        wd = self.app.wd
+        self.open_groups()
+        self.select_group_by_id(id)
+        self.click_edit_button()
+        self.fill_all_fields(group)
+        # click update group
+        wd.find_element_by_name("update").click()
+        self.click_return_to_groups_page_link()
+        self.group_cache = None
+
     def fill_all_fields(self, group):
         wd = self.app.wd
         # fill new group form
@@ -57,6 +68,10 @@ class GroupHelper:
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
 
+    def select_group_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" %id).click()
+
     def open_groups(self):
         wd = self.app.wd
         if wd.current_url.endswith("/group.php") and len(wd.find_elements_by_name("new")) >0:
@@ -74,6 +89,15 @@ class GroupHelper:
         wd = self.app.wd
         self.open_groups()
         self.select_group_by_index(index)
+        # click Delete
+        self.click_delete_button()
+        self.click_return_to_groups_page_link()
+        self.group_cache = None
+
+    def delete_group_by_id(self, id):
+        wd = self.app.wd
+        self.open_groups()
+        self.select_group_by_id(id)
         # click Delete
         self.click_delete_button()
         self.click_return_to_groups_page_link()

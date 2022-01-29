@@ -66,6 +66,16 @@ class ContactHelper:
         wd.find_element_by_name("update").click()
         self.contact_cache = None
 
+    def modify_contact_by_id(self, id, contact):
+        wd = self.app.wd
+        self.click_home_link()
+        wd.find_elements_by_xpath("a[@href='edit.php?id=%s'" % id).click()
+
+        # Fill fields
+        self.fill_all_fields(contact)
+        wd.find_element_by_name("update").click()
+        self.contact_cache = None
+
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
 
@@ -77,9 +87,21 @@ class ContactHelper:
         self.alert_accept()
         self.contact_cache = None
 
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        self.click_home_link()
+        self.select_contact_by_id(id)
+        self.click_delete_button()
+        self.alert_accept()
+        self.contact_cache = None
+
     def select_contact_by_index(self, index):
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
 
     def alert_accept(self):
         wd = self.app.wd

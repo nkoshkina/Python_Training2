@@ -69,8 +69,9 @@ class ContactHelper:
     def modify_contact_by_id(self, id, contact):
         wd = self.app.wd
         self.click_home_link()
-        wd.find_elements_by_xpath("a[@href='edit.php?id=%s'" % id).click()
-
+        element = wd.find_element_by_css_selector("input[value='%s']" % id)
+        element = element.
+        //wd.find_element_by_css_selector("a[@href='edit.php?id=%s']/img" % id).click()
         # Fill fields
         self.fill_all_fields(contact)
         wd.find_element_by_name("update").click()

@@ -2,7 +2,7 @@ from model.contact import Contact
 import re
 import random
 
-def test_data_on_home_and_edit_pages(app, db, check_ui):
+def test_data_on_home_page(app, db, check_ui):
     if len(db.get_contact_list()) == 0:
         app.contact.add_new(Contact(firstname="1n", middlename="2n", lastname="3n", address="Test address",
                                     home="+09875444", mobile="+79897896756", fax="+70008986756",

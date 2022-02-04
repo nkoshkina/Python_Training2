@@ -49,7 +49,7 @@ class DbFixture:
                 (id, firstname, middlename, lastname, address, email, email2, email3, \
                  mobile, work, phone2, home) = row
                 list.append(Contact(id=str(id), firstname=firstname, middlename=middlename, lastname=lastname, \
-                                    email=email, email2=email2, email3=email3, home=home, \
+                                    address=address, email=email, email2=email2, email3=email3, home=home, \
                                     mobile=mobile, work=work, phone2=phone2))
         finally:
             cursor.close()

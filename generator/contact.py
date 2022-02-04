@@ -46,11 +46,11 @@ testdata = [ Contact(firstname="")] + \
        Contact(firstname=random_string("", 8), middlename=random_string("", 10), lastname=random_string("", 15),
             nickname=random_string("", 8),
             title=random_string("", 10), company=random_string("", 15), address=random_string("", 20),
-            hphone=random_number("+7",10), mphone=random_number("+",11), wphone=random_number("+7",10),
+            home=random_number("+7",10), mobile=random_number("+",11), work=random_number("+7",10),
             fax=random_number("+7",10),
             email=random_email("", 7,5), email2=random_email("", 7,5), email3=random_email("", 7,5),
             homepage=random_string("", 15),
-            saddress=random_string("", 20), sphone=random_number("+",11), snotes=random_string("", 30))
+            saddress=random_string("", 20), phone2=random_number("+",11), snotes=random_string("", 30))
     for i in range(n)]
 
 file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)

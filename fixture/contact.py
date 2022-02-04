@@ -97,6 +97,24 @@ class ContactHelper:
         wd.find_element_by_css_selector("div.msgbox")
         self.contact_cache = None
 
+    def add_contact_to_group_by_id(self, cid, grName):
+        wd = self.app.wd
+        self.click_home_link()
+        self.select_contact_by_id(cid)
+        self.selected_field("to_group", grName)
+        wd.find_element_by_css_selector("input[value='Add to']").click()
+
+    def delete_contact_from_group_by_id(self, cid, grName):
+        wd = self.app.wd
+        self.click_home_link()
+        self.selected_field("group", grName)
+        self.select_contact_by_id(cid)
+        wd.find_element_by_name("remove").click()
+
+    def select_group_by_name(self, grName):
+        wd = self.app.wd
+        self.selected_field("group", grName)
+
     def select_contact_by_index(self, index):
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()

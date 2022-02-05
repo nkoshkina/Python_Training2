@@ -18,10 +18,10 @@ def test_add_contact_to_group(app, db, check_ui):
     group0 = random.choice(old_groups)
     old_list = db.get_contacts_in_group(group0.id)
     if len(db.get_contacts_in_group(group0.id)) == 0:
-        app.contact.add_contact_to_group_by_id(contact0.id, group0.name)
+        app.contact.add_contact_to_group_by_id(contact0.id, group0.id)
     old_list = db.get_contacts_in_group(group0.id)
     contact0 = random.choice(old_list)
-    app.contact.delete_contact_from_group_by_id(contact0.id, group0.name)
+    app.contact.delete_contact_from_group_by_id(contact0.id, group0.id)
     old_list.remove(contact0)
     new_list = db.get_contacts_in_group(group0.id)
     assert old_list == new_list

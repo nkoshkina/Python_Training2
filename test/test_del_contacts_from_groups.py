@@ -11,7 +11,7 @@ def test_del_contact_from_group(app, db, check_ui):
                                     "", "", "+7900", "+723456789",
                                     "test@test.com", "t@t2.com", "t@t3.com", "localhost",
                                     "3", "May", "1998", "13", "April", "2020",
-                                    "sec address", "//test", "here are notes"))
+                                        "sec address", "//test", "here are notes"))
     old_contacts = db.get_contact_list()
     old_groups = db.get_group_list()
     contact0 = random.choice(old_contacts)

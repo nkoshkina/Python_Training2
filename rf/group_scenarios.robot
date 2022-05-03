@@ -1,6 +1,7 @@
 *** Settings ***
 Library rf.AddressBook
-Library rf.AddressBook
+Library     rf.AddressBook
+Library     ../rf/AddressBook.py
 Suite Setup  Init Fixtures
 Suite Teardown  Destroy Fixtures
 

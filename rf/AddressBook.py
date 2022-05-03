@@ -2,8 +2,10 @@ import pytest
 import json
 import os.path
 import importlib
-from fixture.application import Application
-from fixture.db import DbFixture
+import fixture.application
+
+#from fixture.application import Application
+#from fixture.db import DbFixture
 import jsonpickle
 
 

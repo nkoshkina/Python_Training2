@@ -1,7 +1,6 @@
 import pymysql.cursors
 from model.group import Group
 from model.contact import Contact
-from model.project import Project
 
 class DbFixture:
 
@@ -10,10 +9,8 @@ class DbFixture:
         self.name = name
         self.user = user
         self.password = password
-        # self.connection = pymysql.connect(host="127.0.0.1", database="addressbook",
-        #                    user="root", password="", autocommit=True)
-        self.connection = pymysql.connect(host="127.0.0.1", database="bugtracker",
-                                          user="root", password="", autocommit=True)
+        self.connection = pymysql.connect(host="127.0.0.1", database="addressbook",
+                        user="root", password="", autocommit=True)
 
     def get_project_list(self):
         list = []

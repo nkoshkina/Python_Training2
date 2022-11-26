@@ -2,8 +2,6 @@ from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
 from fixture.contact import ContactHelper
-from fixture.project import ProjectHelper
-from fixture.soap import SoapHelper
 
 
 class Application:
@@ -22,8 +20,6 @@ class Application:
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
-        self.project = ProjectHelper(self)
-        self.soap = SoapHelper(self)
         self.base_url = base_url
         self.username = username
         self.password = password
